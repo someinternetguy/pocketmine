@@ -1,14 +1,20 @@
 FROM bartt/ubuntu-base
-MAINTAINER Bart Teeuwisse <bart@thecodemill.biz>
+MAINTAINER Marc Colosimo <enzo69mc@gmail.com>
 
 RUN apt-get -y install python3-yaml
-
-RUN mkdir /pocketmine
-RUN cd /pocketmine && curl -sL http://get.pocketmine.net/ | bash -s - -r -v development
 
 VOLUME /pocketmine
 WORKDIR /pocketmine
 
+# make local pocketmine directory
+RUN mkdir /pocketmine-build
+RUN cd /pocketmine-build && curl -sL http://get.pocketmine.net/ | bash -s - -r -v development
+
 EXPOSE 19132
 
-CMD ["./start.sh", "--no-wizard", "--enable-rcon=on"]
+# script needed to work around docker/pocketmine limitations
+COPY docker-start.sh /pocketmine-build/
+
+WORKDIR /pocketmine-build
+
+CMD ["./docker-start.sh", "--no-wizard", "--enable-rcon=off"]
