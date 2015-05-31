@@ -8,11 +8,11 @@ WORKDIR /pocketmine
 
 # make local pocketmine directory
 RUN mkdir /pocketmine-build
-RUN cd /pocketmine-build && curl -sL http://get.pocketmine.net/ | bash -s - -r -v development
+RUN cd /pocketmine-build && curl -sL http://get.pocketmine.net/ | bash -s - -r -v stable
 
-# get PocketDockConsole
+# get PocketDockConsole - need v0.0.11 for pockermine 1.4 stable
 RUN mkdir /pocketmine-build/plugins
-RUN cd /pocketmine-build/plugins && curl -sL -J -O http://forums.pocketmine.net/plugins/pocketdockconsole.698/download?version=2163
+RUN cd /pocketmine-build/plugins && curl -sL -J -O http://forums.pocketmine.net/plugins/pocketdockconsole.698/download?version=2059
 
 # pocketmine's main UDP port
 EXPOSE 19132
