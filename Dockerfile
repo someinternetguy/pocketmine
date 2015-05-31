@@ -10,7 +10,15 @@ WORKDIR /pocketmine
 RUN mkdir /pocketmine-build
 RUN cd /pocketmine-build && curl -sL http://get.pocketmine.net/ | bash -s - -r -v development
 
+# get PocketDockConsole
+RUN mkdir /pocketmine-build/plugins
+RUN cd /pocketmine-build/plugins && curl -sL -J -O http://forums.pocketmine.net/plugins/pocketdockconsole.698/download?version=2163
+
+# pocketmine's main UDP port
 EXPOSE 19132
+
+# PocketDockConsole port
+EXPOSE 9090
 
 # script needed to work around docker/pocketmine limitations
 COPY docker-start.sh /pocketmine-build/
