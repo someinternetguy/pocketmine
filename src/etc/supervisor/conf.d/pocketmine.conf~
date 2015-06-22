@@ -1,8 +1,0 @@
-[program:pocketmine]
-startsecs=5
-autorestart=true
-directory=/mnt/pocketmine/
-command=/pocketmine-build/docker-start.sh --no-wizard --enable-rcon=off
-stderr_logfile = /mnt/pocketmine/logs/stderr.log
-stdout_logfile = /mnt/pocketmine/logs/stdout.log
-
