@@ -22,8 +22,8 @@ EXPOSE 9001
 RUN mkdir /pocketmine-build
 RUN cd /pocketmine-build && curl -sL http://get.pocketmine.net/ | bash -s - -r -v stable
 
-# pocketmine's main UDP port
-EXPOSE 19132
+# pocketmine's main UDP port & pocketmine rcon TCP port
+EXPOSE 19132/tcp 19132/udp
 
 # script needed to work around docker/pocketmine limitations
 COPY ./src/scripts/docker-start.sh /pocketmine-build/
@@ -31,5 +31,5 @@ COPY ./src/scripts/docker-start.sh /pocketmine-build/
 RUN mkdir /pocketmine-build/plugins
 
 WORKDIR /pocketmine-build
-VOLUME /mnt/pocketmine
+VOLUME ["/pocketmine"]
 CMD [ "./docker-start.sh" ]
