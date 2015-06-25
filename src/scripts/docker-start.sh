@@ -1,12 +1,12 @@
 #!/bin/bash
 
-cd /mnt/pocketmine
+cd /pocketmine
 if [ ! -d logs ]; then
     mkdir logs
 fi
 
 # hack because docker can't build this on a mounted volume, if not mounted it is okay
-rsync --ignore-existing -av /pocketmine-build/ /mnt/pocketmine/
+rsync --ignore-existing -av /pocketmine-build/ /pocketmine/
 
 #./start.sh $@
 # start up supervisord
