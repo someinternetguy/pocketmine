@@ -3,6 +3,7 @@ MAINTAINER Marc Colosimo <enzo69mc@gmail.com>
 
 RUN apt-get update -y; apt-get upgrade -y
 RUN apt-get install -y python3-yaml python-setuptools 
+RUN apt-get install -y python3-yaml python-setuptools
 RUN apt-get install -y supervisor openssh-server curl rsync
 RUN easy_install pip && pip install superlance
 
@@ -20,7 +21,7 @@ EXPOSE 9001
 
 # make local pocketmine directory
 RUN mkdir /pocketmine-build
-RUN cd /pocketmine-build && curl -sL http://get.pocketmine.net/ | bash -s - -r -v stable
+RUN cd /pocketmine-build && curl -sL http://get.pocketmine.net/ | bash -s - -r -v development
 
 # pocketmine's main UDP port
 EXPOSE 19132
