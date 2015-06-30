@@ -1,5 +1,7 @@
 ## Pocketmine Docker Image
 
+[![Join the chat at https://gitter.im/someinternetguy/pocketmine](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/someinternetguy/pocketmine?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Run a [pocketmine server](http://www.pocketmine.net) in no time. This docker file builds the latest __development__ version of Pocketmine. 
 
 Builds will also be tagged with the _build number_ as reported by http://www.pocketmine.net.
